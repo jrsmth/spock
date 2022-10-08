@@ -1,2 +1,2 @@
-# spock
+# Spock
 Spock Training
