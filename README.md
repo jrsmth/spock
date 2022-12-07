@@ -20,6 +20,6 @@
 <br>
 
 ## Notes
-* Spock Up & Running, Rob Fletcher 2017:
+* Spock Up & Running (Rob Fletcher, 2017):
     * [Book](https://www.oreilly.com/library/view/spock-up-and/9781491923283/)
     * [Repo](https://github.com/robfletcher/spock-up-and-running)
