@@ -4,7 +4,7 @@
 <br>
 <br>
 
-<img src="./resources/spock-logo.png" alt="Spock Logo" width=300>
+<img src="./res/spock-logo.png" alt="Spock Logo" width=300>
 
 <br>
 <br>
