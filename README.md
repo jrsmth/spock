@@ -10,15 +10,16 @@
 <br>
 
 ## Content
-* [Section 2: Building a Spring Boot Web App](./content/02-build-spring-boot-app)
+* [Chapter 2: Specification Basics](./content/02-specification-basics)
 
 <br>
 
 ## Projects
-* [Pet Clinic](./content/projects/pet-clinic)
+* [Squawker](./content/projects/squawker)
 
 <br>
 
 ## Notes
-* Spring Guru Udemy Course: 
-    * [Spring Framework 5 - Beginner to Guru](https://www.udemy.com/course/spring-framework-5-beginner-to-guru/)
+* Spock Up & Running, Rob Fletcher 2017:
+    * [Book](https://www.oreilly.com/library/view/spock-up-and/9781491923283/)
+    * [Repo](https://github.com/robfletcher/spock-up-and-running)
