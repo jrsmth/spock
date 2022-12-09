@@ -10,7 +10,7 @@
 <br>
 
 ## Content
-* [Specification Basics](./content/specification-basics)
+* [Basics](./content/basics)
 
 <br>
 

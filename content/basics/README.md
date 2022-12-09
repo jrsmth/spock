@@ -1,4 +1,4 @@
-# Specification Basics
+# Basics
 
 <br>
 
