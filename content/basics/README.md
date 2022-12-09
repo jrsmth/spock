@@ -3,7 +3,7 @@
 <br>
 
 ## What is Spock?
-* Spock is...
+* Spock is ...
 * Compatability:
     * Spock is compatible with JUnit's test runner and therefore can run anywhere that JUnit can
     * Either Maven or Gradle can be used to manage a Spock codebase
