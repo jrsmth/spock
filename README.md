@@ -10,7 +10,6 @@
 <br>
 
 ## Content
-* [Chapter 1: Introduction](./content/01-introduction)
 * [Chapter 2: Specification Basics](./content/02-specification-basics)
 
 <br>
