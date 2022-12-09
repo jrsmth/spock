@@ -1,4 +1,4 @@
-# Section 2: Specification Basics
+# Specification Basics
 
 <br>
 
