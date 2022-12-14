@@ -20,6 +20,6 @@
 <br>
 
 ## Notes
-* Spock Up & Running (Rob Fletcher, 2017, Spock v1.1):
+* Spock Up & Running (Rob Fletcher 2017, Spock v1.1):
     * [Book](https://www.oreilly.com/library/view/spock-up-and/9781491923283/)
     * [Repo](https://github.com/robfletcher/spock-up-and-running)
