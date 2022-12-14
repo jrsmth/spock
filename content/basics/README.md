@@ -38,7 +38,7 @@
     * We can add comments to blocks:
         * In the same way that feature methods take strings as names, blocks can take an optional string
         * This enhances our "TaD" (Tests-as-Documentation) by elaborating on the requirement that the test represents
-    * Labels (as of Spock v1.1):
+    * Labels:
         * Main 3 (BDD Test Structure):
             * `given`: establish test context; create the objects to be used, etc
             * `when`: exercise the behaviour of the unit/system under test
