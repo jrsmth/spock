@@ -60,3 +60,6 @@
 
 ## Specification Lifecycle
 * To avoid duplicate code, ...
+
+// TODO:
+* Set up Squawker and add in verifying preconditions of test...
