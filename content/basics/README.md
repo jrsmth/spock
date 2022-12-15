@@ -49,6 +49,14 @@
             * `clean up`: safe clean up of resources, independent of assertion pass/fail
             * `where`: allows for parameterised feature methods
             * `and`: extends the proceeding block to make tests easier to read (enhancing "TaD")
-            
+    * Note:
+        * `when` and `then` blocks must always come in a pair, as they describe the stimuli and expected response
+            * See the Spock Block [docs](https://spockframework.org/spock/docs/1.3/all_in_one.html#_blocks)
+        * `expect` blocks can be used anywhere in a feature method (not just at the end)
+            * Perhaps you wish to verify the predconditions of your test and so would use `expect:` after a `given:` block
+        * Interesting fact: Spock labels are based off of Java labels (for breaking loops, etc)
 
-Whats the rule about proceeding when, then? (given?) 
+<br>
+
+## Specification Lifecycle
+* To avoid duplicate code, ...

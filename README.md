@@ -15,7 +15,7 @@
 <br>
 
 ## Projects
-* [Squawker](./content/projects/squawker)
+* [Squawker](./projects/squawker)
 
 <br>
 
