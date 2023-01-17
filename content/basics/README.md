@@ -53,14 +53,11 @@
         * `when` and `then` blocks must always come in a pair, as they describe the stimuli and expected response
             * See the Spock Block [docs](https://spockframework.org/spock/docs/1.3/all_in_one.html#_blocks)
         * `expect` blocks can be used anywhere in a feature method (not just at the end)
-            * Perhaps you wish to verify the predconditions of your test and so would use `expect:` after a `given:` block
+            * Perhaps you wish to verify the pre-conditions of your test and so would use `expect:` alongside/instead of a `given:` block
+                * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
         * Interesting fact: Spock labels are based off of Java labels (for breaking loops, etc)
 
 <br>
 
 ## Specification Lifecycle
 * To avoid duplicate code, ...
-
-// TODO:
-* Set up Squawker and add in verifying preconditions of test...
-* push to repo - no anonymous access allowed, simply try again first....
