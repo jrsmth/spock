@@ -18,8 +18,9 @@ class UserSpec extends Specification {
     }
 
     def "a user reports if they are following someone"() {
-        expect: // NOTE: here we verify the pre-conditions of this test
+        expect: 'that the user is initially not followed' // NOTE: Block description example
         !user.follows(other)
+        // NOTE: here we verify the pre-conditions of this test
 
         when:
         user.follow(other)

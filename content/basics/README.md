@@ -56,8 +56,39 @@
             * Perhaps you wish to verify the pre-conditions of your test and so would use `expect:` alongside/instead of a `given:` block
                 * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
         * Interesting fact: Spock labels are based off of Java labels (for breaking loops, etc)
+* Assertions:
+    * Spock feature methods do not require an assertions API because conditions are written as plain boolean expressions within a `then:` or `expect:` block
+        * More precisely, a condition may also produce a non-boolean value, which will then be evaluated according to Groovy truthiness
 
 <br>
 
 ## Specification Lifecycle
-* To avoid duplicate code, ...
+* To avoid duplicate code, we can externalise test objects from feature methods, as fields of our specification class
+    * There they can be shared amongst all of the feature methods of this specification
+    * Such fields are re-intialised before each feature method is run and so each test gets a fresh instance
+* Fixture Methods:
+    * `setup()`:
+        * Runs before each feature method; equivalent to JUnit's `@Before`
+    * `cleanup()`:
+        * Runs before after feature method; equivalent to JUnit's `@After`
+    * `setupSpec()`:
+        * Runs before the first feature method; equivalent to JUnit's `@BeforeClass`
+    * `cleanupSpec()`:
+        * Runs after the last feature method; equivalent to JUnit's `@AfterClass`
+
+<br>
+
+## Comprehensibility
+* The importance of readability:
+    * It pays to have a readable test suite, as it will enhance the efficacy of your tests as runnable documentation for what the requirements are ('Tests-as-Documentation', TaD)
+    * Note, software engineering is about trade-offs:
+        * Avoid redundant noise by considering when it is appropriate to use additional explantory blocks and descriptions, rather than use them by default
+* Improving readbility:
+    * Adhere to the 'Single Responsibility' principle for feature methods
+        * That is, feature methods should focus on testing one specific behaviour only
+    * `and:` blocks:
+        * Used to separate logically different parts of a block within a feature method
+    * Block descriptions:
+        * Spock gives us the ability to add block-level comments to our feature methods
+            * Block descriptions can be particularly useful in improving the readbility of your test suite post-compilation
+        * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
