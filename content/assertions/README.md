@@ -38,6 +38,6 @@
     * The "Spread" operator (`*.`), otherwise known as the "Spread-dot" operator, is used to call an action on each item in an aggregate object
         * In other words, we can call a method on each item in a list
         * [Docs](https://groovy-lang.org/operators.html#_spread_operator)
-    * Example: [`User.java`](../../projects/squawker/src/main/java/com/jrsmiffy/spock/squawker/User.java)
+    * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
 * Looping over assertions:
     * ...
