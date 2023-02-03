@@ -22,7 +22,7 @@
 
 ## Power Assert
 * Groovy's `assert` was adopted from Spock
-    * It offers us valuable diagnostics in the terminal that a developer make use of
+    * It offers us valuable diagnostics in the terminal
     * Due to the diagnostics, it us more powerful that Java's `assert` that is used by JUnit
         * Which was intially designed to enforce invariants in production-systems, rather than for unit testing
     * [Good Article](https://blog.nareshak.com/groovy-power-asserts/)
