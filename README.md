@@ -11,6 +11,7 @@
 
 ## Content
 * [Basics](./content/basics)
+* [Assertions](./content/assertions)
 
 <br>
 
