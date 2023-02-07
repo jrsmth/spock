@@ -53,7 +53,7 @@
     * We do this by specifying `thrown(ExcpetionType)` in the following `then:` block
         * Where `ExceptionType` is of type `Class <E extends Throwable>`
     * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy) 
-* It can be useful to further interogate caught exceptions:
+* It can be useful to further interrogate caught exceptions:
     ```groovy
         def e = thrown(IllegalArgumentException) // first assertion
         e.message == '...' // second assertion
