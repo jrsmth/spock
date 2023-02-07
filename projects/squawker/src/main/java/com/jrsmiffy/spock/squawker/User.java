@@ -10,10 +10,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@RequiredArgsConstructor @Getter @Setter
+@RequiredArgsConstructor @Getter
 public class User {
     private final String name;
-    private Set<User> following = new HashSet<>();
+    private final Set<User> following = new HashSet<>();
     private final List<Message> posts = new ArrayList<>();
 
     public void follow(User follower) {

@@ -40,4 +40,26 @@
         * [Docs](https://groovy-lang.org/operators.html#_spread_operator)
     * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
 * Looping over assertions:
-    * ...
+    * Long story short: don't loop over test criteria, as the tests will pass but they will be treated as booleans rather than assertions.
+        * Consider using Groovy's `every` method instead
+            * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
+
+<br>
+
+## Expecting Assertions
+* When writting tests, it important to test both the happy path through the component, as well as the potential failure points
+    * The common way to deal with these failure points is to raise exceptions
+* In Spock, we can assert that an exception should be thrown from the behaviour that is being tested in our `when:` block
+    * We do this by specifying `thrown(ExcpetionType)` in the following `then:` block
+        * Where `ExceptionType` is of type `Class <E extends Throwable>`
+    * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy) 
+* It can be useful to further interogate caught exceptions:
+    ```groovy
+        def e = thrown(IllegalArgumentException) // first assertion
+        e.message == '...' // second assertion
+    ```
+
+<br>
+
+## Grouping Assertions
+* ...
