@@ -43,6 +43,10 @@
     * Long story short: don't loop over test criteria, as the tests will pass but they will be treated as booleans rather than assertions.
         * Consider using Groovy's `every` method instead
             * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
+* Grouping Assertions on the Same Object
+    * Spock allows you to group together assertions on an object with `with(Object, Closure)`
+        * Example: [`UserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/UserSpec.groovy)
+    * Beware not to confuse Spock's `with()` and Groovy's `with()`
 
 <br>
 
@@ -58,8 +62,3 @@
         def e = thrown(IllegalArgumentException) // first assertion
         e.message == '...' // second assertion
     ```
-
-<br>
-
-## Grouping Assertions
-* ...

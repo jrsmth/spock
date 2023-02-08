@@ -95,4 +95,18 @@ class UserSpec extends Specification {
         // Note: here we are further interrogating the exception
     }
 
+    def 'initial state of a user is correct'() {
+        given:
+        def user = new User('kirk')
+
+        expect:
+        with(user) {
+            username == 'kirk'
+            following.isEmpty()
+            posts.isEmpty()
+            registered instanceof Instant
+        }
+        // Note: using with() to group assertions on the same object
+    }
+
 }

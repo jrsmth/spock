@@ -10,11 +10,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static java.time.Instant.now;
+
 @RequiredArgsConstructor @Getter
 public class User {
-    private final String name;
+    private final String username;
     private final Set<User> following = new HashSet<>();
     private final List<Message> posts = new ArrayList<>();
+    private final Instant registered = now();
 
     public void follow(User follower) {
         this.following.add(follower);
@@ -33,7 +36,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "@" + this.name;
+        return "@" + this.username;
     } // Note: we can implement .toString() to improve the diagnostics of the power assert
 
 }
