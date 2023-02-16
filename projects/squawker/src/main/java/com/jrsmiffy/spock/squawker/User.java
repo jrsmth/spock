@@ -2,10 +2,10 @@ package com.jrsmiffy.spock.squawker;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,6 +32,15 @@ public class User {
         posts.add(0, message);
 
         return message;
+    }
+
+    public List<Message> timeline() {
+        List<Message> timeline = new ArrayList<>(posts);
+
+        for (User user : following) timeline.addAll(user.posts);
+        Collections.sort(timeline);
+
+        return Collections.unmodifiableList(timeline);
     }
 
     @Override

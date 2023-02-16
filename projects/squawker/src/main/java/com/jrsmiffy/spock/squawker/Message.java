@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.time.Instant;
 
 @Getter
-public class Message {
+public class Message implements Comparable<Message> {
     public static final int MAX_TEXT_LENGTH = 140;
 
     private final User postedBy;
@@ -20,6 +20,11 @@ public class Message {
         this.postedBy = postedBy;
         this.text = text;
         this.postedAt = postedAt;
+    }
+
+    @Override
+    public int compareTo(Message other) {
+        return -postedAt.compareTo(other.postedAt);
     }
 
     // TODO: add the methods and TDD...
