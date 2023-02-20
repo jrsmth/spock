@@ -71,7 +71,7 @@
     * However, that would make the class difficult to test because we couldn't create messages that were posted in the past
 * There are two methods to overcome this:
     * First (not recommended): 
-        * Use a package-protected constructor to allow timestamps to be set from outside the class and use the Guava libraries `@VisibleForTesting` annotation.
+        * Use a package-protected constructor to allow timestamps to be set from outside the class and use the Guava library's `@VisibleForTesting` annotation.
         * It is bad practise to have code running in production that is just used by the test suite
     * Second (recommended): 
         * Use the 'extract and override' technique:
