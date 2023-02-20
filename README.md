@@ -12,6 +12,7 @@
 ## Content
 * [Basics](./content/basics)
 * [Assertions](./content/assertions)
+* [Managing Resources](./content/managing-resources)
 
 <br>
 
