@@ -62,3 +62,41 @@
         def e = thrown(IllegalArgumentException) // first assertion
         e.message == '...' // second assertion
     ```
+
+<br>
+
+## Testing Dates & Timestamps
+* In our Squawker [Message](../../projects/squawker/src/main/java/com/jrsmiffy/spock/squawker/Message.java) class, we are providing a way to set the time that the message was posted
+    * Ideally, we would not expose this functionality and rather just set a timestamp in the constructor 
+    * However, that would make the class difficult to test because we couldn't create messages that were posted in the past
+* There are two methods to overcome this:
+    * First (not recommended): 
+        * Use a package-protected constructor to allow timestamps to be set from outside the class and use the Guava libraries `@VisibleForTesting` annotation.
+        * It is bad practise to have code running in production that is just used by the test suite
+    * Second (recommended): 
+        * Use the 'extract and override' technique:
+            * This involves using a protected method to create the timestamp and then overide it in the instance under test
+        * Example:
+            ```java
+                public class Message {
+                    private final Instant postedAt = currentTime();
+
+                    protected Instant currentTime() {
+                        return Instant.now();
+                    }
+                }
+            ```
+            ```groovy
+                class MessageSpec extends Specification {
+                    def fixedInstant = ... // create fixed timestamp somehow
+
+                    def message = new Message() {
+                        @Override protected Instant currentTime() {
+                            fixedInstant // last line of groovy method is returned
+                        }
+                    } 
+                    // instead of using the Message class direct, the spec creates an anonymous inner class that extends Message
+                    // the anonymous inner class overrides the currentTime method and simply returns the fixed instant
+                    // not ideal however, as we are still opening a back door in our production code for testing purposes
+                }
+            ```
