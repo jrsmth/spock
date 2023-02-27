@@ -13,4 +13,67 @@
 * General rules of thumb:
     * Set up the minimum amount of data required for a specific test (no excess data)
     * Keep everything in-memory AMAP (H2 by default)
-* NEXT: Testing a persistence layer example... page 40...
+* Example: Storing a User object
+    ```groovy
+        Handle handle
+        @Subject DataStore dataStore // custom object that handles SQL updates via JDBI
+
+        def 'can insert a user object'() {
+            given:
+            def clock = Clock.fixed(now(), UTC)
+
+            and:
+            def user = new User("spock", clock.instant())
+
+            when:
+            dataStore.insert(user)
+
+            then:
+            def iterator = handle.createQuery("select username, registered from user").iterator()
+            iterator.hasNext() // assert that the first row exists
+
+            with(iterator.hasNext()) {
+                username == user.username
+                registered.time == clock.instant().toEpochMilli()
+            }
+
+            and:
+            !iterator.hasNext()
+        }
+    ```
+
+<br>
+
+## Managing Resources with the Spock Lifecycle
+* Consider using `setup()` and `cleanup()` when working with managed resources, such as a database:
+    * `setup()`: 
+        * Acquire connection to the database
+        * Configure object-relational mapping
+        * Create DAO under test
+        * Ensure the required tables actually exist
+    * `cleanup()`:
+        * Clean up the data that was created as part of the test
+        * Dispose of the database connection properly
+
+<br>
+
+## Test Leakage
+* Unit tests must be idempotent:
+    * Meaning that the test should produce the same result each time it is run
+        * The number of times of execution is idenpedent from the result (which should always be the same)
+    * Two things can be said about idempotent tests:
+        1. The order of execution of the test suite is irrelevant to the outcome
+        2. A group of tests can be run sequentially and have the same outcome as when the tests are each run in isolation
+* Test Leakage is where side effects from one test affect subsequent tests in the suite:
+    * Test Leakage can be very difficult to diagnose, as the cause will likely not show in the logged result of that test
+    * Test Leakage is often caused by badly managed resources:
+        * Left over data in a persistent store
+        * Reused mocks
+        * Uncontrolled changes to global state (such as a change to the system clock)
+        * Changes to a Class' metadata
+* `@Shared`:
+    * Fields marked with `@Shared` are only initialised once
+        * Unlike standard fields in a specification, which are re-initialised after each feature method
+            * `@Shared` fields are initialised before the first feature method is run
+    * Designed to be used in conjuction with `setupSpec()` and `cleanupSpec()`, rather than `setup()` and `cleanup()`
+    * Example on page 44/45?
