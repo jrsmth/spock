@@ -9,3 +9,5 @@
 <br>
 
 ## Mocks, Stubs & Spies
+
+> Go back to chapter 4 and do the coding for the Spec Inheritance!
