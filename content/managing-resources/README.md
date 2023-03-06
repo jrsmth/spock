@@ -72,8 +72,24 @@
         * Uncontrolled changes to global state (such as a change to the system clock)
         * Changes to a Class' metadata
 * `@Shared`:
+    * The `@Shared` annotation marks a field where you want to share a single object across each test within a Spec
     * Fields marked with `@Shared` are only initialised once
         * Unlike standard fields in a specification, which are re-initialised after each feature method
             * `@Shared` fields are initialised before the first feature method is run
     * Designed to be used in conjuction with `setupSpec()` and `cleanupSpec()`, rather than `setup()` and `cleanup()`
-    * Example on page 44/45?
+        * It is functionally equivalent to initialising the field at the very beginning of `setupSpec()`
+    * `@Shared` vs `static` [discussion](https://stackoverflow.com/questions/35923714/when-spocks-shared-annotation-should-be-preferred-over-a-static-field):
+        * TLDR: Spock is about expressiveness and `@Shared` means what it says on the tin
+* `expect:`
+    * As mentioned previously, an `expect:` block can be used at the start of a feature method to verify the preconditions of a test
+    * Using `expect:` (where appropriate) is a good bit of defensive coding that allows you to watch out for test leakage
+
+<br>
+
+## Specification Inheritance
+* Specification hierachies can be created in order to reduce duplicate logic
+* At a high-level:
+    * The execution of `setupSpec` and `setup()` proceeds down the inheritance tree
+    * The execution of `cleanupSpec` and `cleanup()` proceeds up the inheritance tree
+* Note:
+    * You have to 'manually' call `super.setup()` in the child classes, as Spock handles this automatically
