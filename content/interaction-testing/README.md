@@ -71,7 +71,7 @@
         }    
     ```
 * If no return value is specified and method is not void, a default 'zero' value is returned:
-    * Depending on the method return type:
+    * 'Zero value' per return type:
         * Booleans :: `false`
         * Numeric Primitives :: `0`
         * Objects :: `null`
@@ -79,5 +79,29 @@
 <br>
 
 ## Strict Mocking
-...
+* Spock Mocks are 'lenient' in so far as they allow calls that were explicitly expected
+    * Unexpected calls to non-void methods return a 'zero value'
+* Lenient mocking is generally an advantageous feature of Spock, as it allows us to ignore incidental behaviours and focus on the test
+    * However, sometimes 'strict' mocking is required, where we specifically require the cardinality of a certain method call to be `0`
+        * This can be demonstrated in the context of Squawker to ensure that no data is written to database if certain conditions are broken:
+            ```groovy
+                  def "a message that is too long is not written to the database"() {
+                    given: "some message text that exceeds the maximum allowed length"
+                    def messageText = """On my planet, 'to rest' is to rest, to cease using
+                                        energy. To me it is quite illogical to run up and down
+                                        on green grass using energy instead of saving it."""
+
+                    expect:
+                    messageText.length() > Message.MAX_TEXT_LENGTH
+
+                    when: "a user attempts to post the message"
+                    user.post(messageText, now())
+
+                    then: "an exception is thrown"
+                    thrown(IllegalArgumentException)
+
+                    and: "no attempt is made to write the message to the database"
+                    0 * dataStore.insert(_)
+                }
+            ```
 
