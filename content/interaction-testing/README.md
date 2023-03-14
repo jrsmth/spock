@@ -63,7 +63,7 @@
 
             then: "the database is queried only once"
             1 * dataStore.findFollowing(user) >> otherUsers
-            // here, we specify that 'otherUsers' should be returned in our test when the findFollowing() method is called with 'user'
+            // 'otherUsers' is returned in our test when the findFollowing() method is called w/ 'user'
 
             and: "both calls return consistent results"
             result1 == otherUsers as Set
