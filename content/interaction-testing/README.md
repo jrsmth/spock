@@ -105,3 +105,19 @@
                 }
             ```
 
+<br>
+
+## Wildcards
+* Wildcards aid us in decoupling our tests from the implementation details:
+    * Parameters:
+        * `_` : Any single value of any type
+        * `_ as <TYPE>` : Any single value of `<TYPE>`
+        * `*_` : Any number of values (zero or more) of any type
+    * Methods:
+        * `0 * mockObject._` : assert there are `0` calls to any method on `mockObject`
+        * `0 * _` : assert there are `0` calls to any method on any mock
+
+<br>
+
+## Defining Behaviour for Mocked Methods
+* ...
