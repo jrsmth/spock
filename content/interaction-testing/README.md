@@ -120,4 +120,60 @@
 <br>
 
 ## Defining Behaviour for Mocked Methods
+* As mentioned above, we can use the right-shift operator (`>>`) to define the return value for a mocked method
+    * Similarly, we can use a Groovy Closure to define a behaviour as well; such as throwing an exception
+        * Example:
+            ```groovy
+                def "an exception is thrown if the database connection is stale"() {
+                    when:
+                    user.posts
+
+                    then:
+                    1 * dataStore.postsBy(user) >> {
+                        throw new UnableToCreateStatementException(null)
+                    }
+
+                    and:
+                    def e = thrown(IllegalStateException)
+                    e.cause instanceof UnableToCreateStatementException
+                }
+            ```
+
+<br>
+
+## Stubs
+* Removing Invocation Constraints:
+    * Stubs are like Mocks in so far as they emulate the behaviour of an object
+        * However, they differ in that Stubs do not verify whether or not they are interacted with
+            * They only provide pre-defined method behaviours in the event that they are interacted with
+    * Example:
+        * In an example above, we considered a test where an exception is thrown from the method of a test double
+            * However, we do not need to be making the assertion that the cardinality of invocation is `1`
+                * We could use a wildcard to assert for any number of invocations (i.e `_ * dataStore.postsBy(user) >> {...}`)
+                    * Or for readability, we could use a Stub to define `dataStore` (i.e `def dataStore = Stub(DataStore)`):
+                        ```groovy
+                          def "an exception is thrown if the database connection is stale"() {
+                                given:
+                                dataStore.postsBy(user) >> {
+                                    throw new UnableToCreateStatementException(null)
+                                }
+
+                                when:
+                                user.posts
+
+                                then:
+                                def e = thrown(IllegalStateException)
+                                e.cause instanceof UnableToCreateStatementException
+                            }
+                        ```
+                        * Unlike the method behaviour of a Mock (which is defined in `then:`), the method behaviour for the Stub is defined in `given:`
+
+<br>
+
+## The Dark Art of Selecting a Test Double (Mock vs Stub vs Spy)
 * ...
+
+
+
+Just a though about squawker, you don't need the bloody implementation of dataStore because you are mocking its method's with Interaction Testing!
+Consider using it from now on
