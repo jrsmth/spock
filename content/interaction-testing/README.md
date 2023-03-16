@@ -17,6 +17,13 @@
         * Tests can verify that calls were made as expected
     * `Stub`:
         * A test double whose methods will return a predetermined response or take a pre-determined action (ex: throw exception)
+* A 'Spy' allows us to perform interaction testing but is not a mock / dummy of a real object
+    * Rather, it wraps an actual object and intercepts method calls to it
+        * Thus, allowing you to provide your own implementations
+        * Where a method implementation is not provided, calls are delegated to the original object
+            * In this sense, a Spy can act like both a standard object or a test double (Mock / Stub)
+        * Due to this, a Spy cannot be used on an interface (only a standard concrete class)
+    * Note: Spies are not covered in 'Spock: Up & Running, `v1.1`' as they were introduced in `v1.3`
 
 <br>
 
@@ -171,9 +178,24 @@
 <br>
 
 ## The Dark Art of Selecting a Test Double (Mock vs Stub vs Spy)
-* ...
-
-
-
-Just a though about squawker, you don't need the bloody implementation of dataStore because you are mocking its method's with Interaction Testing!
-Consider using it from now on
+* When to use a `Mock()`:
+    * Use a Mock, if the test is concerned with proving that the `@Subject` does in fact interact with a collaborator in a certain way
+        * The danger of over-using Mocks, in place of Stubs, is that we create tests which are overly strict
+        * Use a Mock, if the collaborator is an 'output':
+            * That is, the interaction with the test double is required to prove that your `@Subject` is working correctly
+* When to use a `Stub()`:
+    * Use a Stub, if the collaborator exposes particular behaviours in your `@Subject` and the resulting outcome is what you are testing
+        * Use a Mock, if the collaborator is an 'input':
+            * That is, the interaction with the test double does something (returns a value, throws an exception, etc) that causes the behaviour that you want to test
+        * GRoT: if you neeed to define the behaviour of the test double, you *probably* need a Stub
+* Mixing Mocks & Stubs:
+    * Spock's Mocks & Stubs are interachangeable; an object can even be both simultaneously
+        * This allows us to stub certain methods of an object and mock others
+* When to use a `Spy()`:
+    * A Spy should be used to solve specific problems in Spock and therefore is only be used when absolutely necessary
+    * In general, thinking you need a `Spy()` for common test cases is a code smell for a `@Subject` or Specification that should be refactored
+* Order of Use:
+    * If you need a test double, consider which one to choose in this order (from lowest complexity to highest)
+        1. `Stub()` :: default choice for a test double (to provide dummy behaviour)
+        2. `Mock()` :: use where its necessary to verify the number of invocations of a method
+        3. `Spy()` :: use where its necessary to also call the collaborator directly (blurring the lines of your unit test)
