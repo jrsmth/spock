@@ -14,6 +14,7 @@
 * [Assertions](./content/assertions)
 * [Managing Resources](./content/managing-resources)
 * [Interaction Testing](./content/interaction-testing)
+* [Parameterised Specification](./content/06-parameterised-specs)
 
 <br>
 
