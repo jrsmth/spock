@@ -23,7 +23,7 @@
         * Where a method implementation is not provided, calls are delegated to the original object
             * In this sense, a Spy can act like both a standard object or a test double (Mock / Stub)
         * Due to this, a Spy cannot be used on an interface (only a standard concrete class)
-    * Note: Spies are not covered in 'Spock: Up & Running, `v1.1`' as they were introduced in `v1.3`
+    * Note: Spies are not covered in 'Spock: Up & Running (`v1.1`), as they were introduced in `v1.3`
 
 <br>
 
