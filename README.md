@@ -10,11 +10,11 @@
 <br>
 
 ## Content
-* [Basics](./content/basics)
-* [Assertions](./content/assertions)
-* [Managing Resources](./content/managing-resources)
-* [Interaction Testing](./content/interaction-testing)
-* [Parameterised Specification](./content/06-parameterised-specs)
+* [Basics](./content/02-basics)
+* [Assertions](./content/03-assertions)
+* [Managing Resources](./content/04-managing-resources)
+* [Interaction Testing](./content/05-interaction-testing)
+* [Parameterised Specifications](./content/06-parameterised-specs)
 
 <br>
 
