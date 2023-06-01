@@ -64,4 +64,5 @@ class TimelineSpec extends Specification {
         def clock = Clock.fixed(at, ZoneOffset.UTC)
         poster.post(text, clock.instant())
     }
+
 }

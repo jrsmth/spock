@@ -31,3 +31,30 @@
     * `@ParameterizedTest`
 * JUnit 4:
     * `@Parameters` + `@RunWith(Parameterized.class)`
+
+<br>
+
+## `where:` block
+* Spocks offers us a `where:` block, to be positioned at the end of our feature methods
+    * The block's main purpose is to reduce duplicated feature methods of similar behaviour, by grouping similar test data under one method
+* Within `where:`, we define an iterable set of data points - causing the feature method to be ran once per data point
+    * Example: [`RegistrationSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/registration/RegistrationSpec.groovy)
+* Data Pipe:
+    * ex: 
+        ```groovy
+            where: 
+            username << [null, '', ' ', '@&%\$+[', 'spock']
+        ```
+        * Using the 'left-shift' operator (`<<`), we can define a data pipe that passes a set of data points to the `username` variable
+        * Note, `username` is not defined out of the `where:` block and yet is available in the remaining body of the test
+
+* Data Table:
+    * `// TODO`
+* Notes:
+    * For conciseness, default to using a data pipe over a data table; only use a table when multiple variables are being parameterised
+    * Typically, parameterised data is used to form varying arguments for the subject method that we're exercising
+
+<br>
+
+## `@Unroll`
+* This

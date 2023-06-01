@@ -21,9 +21,14 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.projectlombok:lombok:1.18.26'
+	implementation 'com.google.guava:guava:31.1-jre'
+	implementation 'net.bytebuddy:byte-buddy:1.14.4'
+	// Note :: ^^Fix for CannotCreateMockException ... Mocking of non-interface types requires a code generation library
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.codehaus.groovy:groovy-all:3.0.14'
+	testImplementation 'org.codehaus.groovy:groovy-all:3.0.16'
 	testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
 }
 
