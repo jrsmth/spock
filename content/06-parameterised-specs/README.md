@@ -37,7 +37,7 @@
 ## `where:` block
 * Spocks offers us a `where:` block, to be positioned at the end of our feature methods
     * The block's main purpose is to reduce duplicated feature methods of similar behaviour, by grouping similar test data under one method
-* Within `where:`, we define an iterable set of data points - causing the feature method to be ran once per data point
+* Within `where:`, we define an iterable set of data that causes the method to be run once for each data point
     * Example: [`RegistrationSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/registration/RegistrationSpec.groovy)
 * Data Pipe:
     * ex: 
