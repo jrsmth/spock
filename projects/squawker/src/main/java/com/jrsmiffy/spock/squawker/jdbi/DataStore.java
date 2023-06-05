@@ -3,7 +3,7 @@ package com.jrsmiffy.spock.squawker.jdbi;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class DataStore {
+public abstract class DataStore {
 
     public void insert(Object object) {
         log.info("Saving object [{}]", object);

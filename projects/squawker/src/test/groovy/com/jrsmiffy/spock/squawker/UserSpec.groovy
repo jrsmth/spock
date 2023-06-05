@@ -7,7 +7,9 @@ import java.time.Instant
 
 import static java.time.Instant.now
 
-/** Test for {@link User} */
+/**
+ * Unit tests for {@link User}
+ */
 class UserSpec extends Specification {
 
     def user = new User('kirk')
@@ -39,7 +41,7 @@ class UserSpec extends Specification {
         def message = '@kirk that is illogical, Captain!'
 
         when:
-        user.post(message, Instant.now())
+        user.post(message, now())
 
         then:
         user.posts.text == [message]
