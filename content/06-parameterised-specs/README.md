@@ -21,6 +21,11 @@
     * How:
         * Parameters are supplied in the `where:` block, at the tail of a feature method
         * For each set of parameters, the feature method is executed once
+* `@Shared`:
+    * Marking a Specification field with `@Shared` indicates that it is not reinitialised before each feature method
+        * Instead the value is 'shared' between tests
+    * I cannot think of a good use-case to mandate the neccesity of `@Shared`; rather I reckon its purpose is for test clarity (expressiveness)
+        * That seems to be the opinion on this StackOverflow [post](https://stackoverflow.com/questions/35923714/when-spocks-shared-annotation-should-be-preferred-over-a-static-field)
 
 <br>
 
@@ -48,9 +53,16 @@
         * Using the 'left-shift' operator (`<<`), we can define a data pipe that passes a set of data points to the `username` variable
         * Note, `username` is not defined out of the `where:` block and yet is available in the remaining body of the test
     * Multiple data pipes:
-        * `// TODO`
+        * We can have multiple data pipes in a single `where:` block
+        * Whilst two is generally acceptable, any more is likely to reduce readability
 * Data Table:
-    * `// TODO`
+    * If we're considering the use of multiple data pipes, it may be more prudent to use a data table instead
+        * A data table is little more than semantic sugar over multiple data pipes
+            * With the purpose of enhancing the readability and maintainability for our parameterised test data
+    * Structure:
+        * Column headers serve as variable names
+        * Each row represents the data passed in for each iteration of the feature method
+    * Example: [`RegistrationSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/registration/RegistrationSpec.groovy)
 * Notes:
     * For conciseness, default to using a data pipe over a data table; only use a table when multiple variables are being parameterised
     * Typically, parameterised data is used to form varying arguments for the subject method that we're exercising
