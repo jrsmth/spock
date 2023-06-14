@@ -63,6 +63,29 @@
         * Column headers serve as variable names
         * Each row represents the data passed in for each iteration of the feature method
     * Example: [`RegistrationSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/registration/RegistrationSpec.groovy)
+* Derived Values:
+    * Simple assignments can also be used in a `where:` block
+    * As is the central axiom of Spock, this is done to make a feature method more expressive:
+        * The rule of thumb being, default to using derived values when they enhance the readability of the test
+    * Example:
+        ```groovy
+                @Unroll
+                def 'a user only sees messages from users they follow in their timeline'() {
+                    given:
+                    dataStore.insert(message)
+
+                    expect:
+                    user.timeline().contains(message) == shouldAppearInTimeline
+
+                    where:
+                    postedBy        | shouldAppearInTimeline
+                    user            | true
+                    followedUser    | true
+                    notFollowedUser | false
+
+                    message = new Message(postedBy, 'Lorem ipsum dolor sit amet') // Note :: use of a 'derived value'
+                }
+        ```
 * Notes:
     * For conciseness, default to using a data pipe over a data table; only use a table when multiple variables are being parameterised
     * Typically, parameterised data is used to form varying arguments for the subject method that we're exercising

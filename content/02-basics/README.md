@@ -16,6 +16,10 @@
     * Spock is compatible with JUnit's test runner and therefore can run anywhere that JUnit can
     * Either Maven or Gradle can be used to manage a Spock codebase
         * However Gradle makes the most sense, as we are already using Groovy
+* Expressiveness:
+    * This the central axiom at the heart of Spock:     
+        * Tests should be expressive and easy to read
+        * When this is achieved, your test base can accurately describe the requirements of your code
 
 <br>
 

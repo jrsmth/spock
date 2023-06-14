@@ -47,7 +47,7 @@ class RegistrationSpec extends Specification {
     @Unroll
     def 'a new user cannot register with the username `#username`'() {
         given:
-        dataStore.usernameInUse(usedUsername) >> true
+        dataStore.usernameInUse(_ as String) >> true
 
         when:
         subject.register(username)
