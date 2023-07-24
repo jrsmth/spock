@@ -115,3 +115,6 @@
             * If multiple 'token' variable names are used in the `@Unroll` description and this does not effectively communicate what the purpose of the test is
             * A good rule of thumb:
                 * Use the feature method name to describe the general test case and the `@Unroll` description to describe each specific parameterised interaction
+* Mr Fletcher stresses the importance of writting tests (and test reports) that read like well-written English prose
+    * To such end, where appropriate, he advocates the use of variable assignments in `where:` blocks that serve no purpose beyond being explanatory variables in test reports
+        * Example: [`TimelineSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/TimelineSpec.groovy)

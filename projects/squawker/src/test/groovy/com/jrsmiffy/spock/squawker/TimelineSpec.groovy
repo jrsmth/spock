@@ -1,7 +1,9 @@
 package com.jrsmiffy.spock.squawker
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Subject
+import spock.lang.Unroll
 
 import java.time.Clock
 import java.time.Instant
@@ -60,9 +62,31 @@ class TimelineSpec extends Specification {
         thrown(UnsupportedOperationException)
     }
 
-    private void postMessage(User poster, Instant at, String text) {
+    /*
+    @Unroll('a message posted by #postedBy #behavior in #whose timeline')
+    def 'a user only sees messages from users they follow in their timeline'() {
+        given:
+        dataStore.insert(message)
+
+        expect:
+        user.timeline().contains(message) == shouldAppearInTimeline
+
+        where:
+        postedBy        | shouldAppearInTimeline
+        user            | true
+        followedUser    | true
+        notFollowedUser | false
+
+        message = new Message(postedBy, 'Lorem ipsum dolor sit amet')
+        behavior = shouldAppearInTimeline ? 'appears' : 'does not appear'
+        whose = postedBy == user ? 'their own' : '$user\'s'
+        // Note :: 'whose' exists solely as an explanatory variable in the @Unroll test report
+    }
+    */
+
+    private static void postMessage(User poster, Instant at, String text) {
         def clock = Clock.fixed(at, ZoneOffset.UTC)
         poster.post(text, clock.instant())
-    }
+    } // Question :: Is it worth putting all private helper methods in Traits so they are separate from feature methods?
 
 }
