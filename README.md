@@ -15,6 +15,7 @@
 * [Managing Resources](./content/04-managing-resources)
 * [Interaction Testing](./content/05-interaction-testing)
 * [Parameterised Specifications](./content/06-parameterised-specs)
+* [Idiomatic Spock](./content/07-idiomatic-spock)
 
 <br>
 
