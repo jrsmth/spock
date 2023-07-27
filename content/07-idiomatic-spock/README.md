@@ -4,9 +4,9 @@
 
 ## Overview
 * To make tests as effective and expressive as possible, it is worth learning how to leverage the full power of both Spock & Groovy
-    * Be aware not to write verbose, Java-like, JUnit-esque tests, when a more idiomatic spock approach is available
-* Idiomatic, /ˌɪd.i.əˈmæt.ɪk, using expressions that are natural to a native speaker
-    * As an apprentice of Spock, one must embrace his inner *Vulcan*
+    * Be aware not to write verbose, Java-like, JUnit-esque tests, when a more idiomatic Spock approach is available
+    * Idiomatic, /ˌɪd.i.əˈmæt.ɪk, using expressions that are natural to a native speaker
+        * As an apprentice of Spock, one must embrace his inner *Vulcan*
 * One of the more !mportant rules of writting tests:
     * `Never trust a test that you have not seen fail.` - else, you risk not knowing what the test actually does
         * What this quip really means is:
