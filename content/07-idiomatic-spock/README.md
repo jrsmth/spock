@@ -38,7 +38,7 @@
 * Reminder ad nauseum:
     * Like with "normal" code, test methods should be elegant, read like well-written prose and not violate the principle of single responsibility
 * Note:
-    * When requirements change the code base, the test base should also reflect similar changes
+    * When requirements change the code base, the test base should also reflect these changes
         * This is because tests document the requirements; as well as documenting what the code actually does (living requirements & documentation, TaD [`Tests-as-Documentation`])
     * However, when the production code is being refactored and requirements stay the same, tests should change as little as possible (ideally not at all)
         * We should decouple the test base from the code base as much as we can; in order to reduce the fragility of our tests
