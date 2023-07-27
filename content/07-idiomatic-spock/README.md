@@ -33,7 +33,7 @@
 * **TLDR:** 1:1 relationship between production and test method where 1:many is more appropriate
 * This is where the developer attempts to squeeze every test for a particular unit of code (e.g. a method) into a single feature method
 * It is reasonable to begin with a 1:1 relationship between production and test method
-    * However, as the complexity of code unit grows, we should have multiple feature methods:
+    * However, as the complexity of a code unit grows, we should have multiple feature methods:
         * Each one testing a different path of execution - e.g. happy path, error handling, invalid inputs, etc
 * Reminder ad nauseum:
     * Like with "normal" code, test methods should be elegant, read like well-written prose and not violate the principle of single responsibility
