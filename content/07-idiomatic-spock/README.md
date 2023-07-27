@@ -7,11 +7,11 @@
     * Be aware not to write verbose, Java-like, JUnit-esque tests, when a more idiomatic Spock approach is available
     * Idiomatic, /ˌɪd.i.əˈmæt.ɪk, using expressions that are natural to a native speaker
         * As an apprentice of Spock, one must embrace his inner *Vulcan*
-* One of the more !mportant rules of writting tests:
-    * `Never trust a test that you have not seen fail.` - else, you risk not knowing what the test actually does
-        * What this quip really means is:
-            * 'Never trust a test that you don't understand exactly what it tests'
-                * A good way to tell is to purposefully try to make the test fail and confirm your understanding
+* One of the most !mportant rules of writting tests:
+    * `Never trust a test that you have not seen fail.` - else you risk not knowing what the test actually does
+        * What this quip really means:
+            * 'Never trust a test where you don't understand exactly what is tested'
+                * A good way to tell is to purposefully try to make the test fail and verify your understanding
 
 <br>
 
