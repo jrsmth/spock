@@ -16,7 +16,7 @@
 <br>
 
 ## The "Cuckoo" Anti-Pattern
-* **TLDR:** 1:1 relationship between production and test class
+* **TLDR:** 1:1 relationship between production and test class where 1:many is more appropriate
 * The "Cuckoo" is a feature method that sits in a specification where it doesn't really belong
 * This is a result of forcing all tests for a specific unit of code to be in the same test class
     * When focusing on testing the behaviour of our app, it can be prudent to group tests in a Spec that cuts across units of code
@@ -30,7 +30,7 @@
 <br>
 
 ## The "Test-Per-Method" Anti-Pattern
-* **TLDR:** 1:1 relationship between production and test method
+* **TLDR:** 1:1 relationship between production and test method where 1:many is more appropriate
 * This is where the developer attempts to squeeze every test for a particular unit of code (e.g. a method) into a single feature method
 * It is reasonable to begin with a 1:1 relationship between production and test method
     * However, as the complexity of code unit grows, we should have multiple feature methods:
