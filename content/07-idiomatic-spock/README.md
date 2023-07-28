@@ -46,4 +46,42 @@
 <br>
 
 ## Well-Factored Specification
-* ...
+* A lovely saying, that echoes Uncle Bob's sentiments:
+    * "Programs must be written for people to read and, only incidentally, for machines to execute"
+* What makes feature methods hard to read:
+    * When they contain many lines of set-up that establishes multiple preconditions
+    * When they use complex code to retrieve values against which assertions are made
+    * When they perform multiple actions in order to exercise the behaviour under test
+    * When they need to walk through a number of steps to get the system to the point where the behaviour can be tested
+* As Uncle Bob recommends in "Clean Code", we should "extract till we drop":
+    * Meaning, we should keep breaking down methods into multiple smaller and simpler methods, until each is so simple that they're trivial to understand
+        * Remember: like production code, test code should be elegant and read like well-written prose
+    * If our extracted methods are well-named and organised into appropriate packages, the resulting program will read as a layered description of itself
+    * This organises our code like a news article; in a polite manner that allows the reader to exit when the details no longer concern them
+        * The higher-level methods deal in abstracts, calling lower-level methods that deal with the details
+            * It is possible to get a clear understanding of 'what' the program does by just reading the high-level methods
+            * The low-level methods are concerns with the 'how'; so we can drill down only when the details concern us
+                * We're not forced to drill down into the low-level methods in order to pain-stakingly understand the 'what' of the program
+
+<br>
+
+## Sharing Helper Methods
+* Where possible we should extract set-up code into helper methods that can be shared across the feature methods of your specification; similarly, we should look to share set-up logic across specification classes where cross-overs occur
+* There are a few different ways of sharing helper methods across specifications:
+    * Using `import static`:
+        * Define `static` methods in a dedicated 'Fixtures' class and simply add them in the desired spec via `import static`
+        * Example:
+            ```groovy
+                class MessagesFixtures {
+                    static void postMessageBy(MessageStore store, User poster) {
+                        store.insert(poster, 'dummy text', Instant.now())
+                    }
+                }
+
+                // In the desired spec
+                import static com.package.MessagesFixtures.postMessageBy
+                ...
+                postMessageBy(store, user)
+            ``` 
+    * Using Groovy Traits:
+    * Using Delegation:
