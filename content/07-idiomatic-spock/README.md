@@ -91,7 +91,7 @@
         * Example: [`FixturesTrait.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/FixturesTrait.groovy)
             * To make use of the fixture logic, we use the `implements` keyword in the desired specification and simply invoke the members (fields + methods) that we need 
     * Using Delegation:
-        * We can also create fixtures methods in a 'delagate' class, that is created as a property of the specification class and annotated with `@Delegate`
+        * We can also create fixtures methods in a 'delegate' class, that is created as a property of the specification class and annotated with `@Delegate`
             * Here, delegation is a way to import instance methods of an object in much the same way that `import static` imports static methods
                 * Groovy's `@Delegate` annotation intercepts any unknown method calls and redirects them to the delegate object
             * Note:
@@ -101,7 +101,7 @@
             ```groovy
                 class SomeSpec extends Specification {
 
-                    @Delegate FixturesDelagate fixtures
+                    @Delegate FixturesDelegate fixtures
 
                     def setup() {
                         fixtures = new FixturesDelegate(messageStore, userStore, followingStore, user)
