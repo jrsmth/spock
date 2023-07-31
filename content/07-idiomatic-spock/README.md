@@ -87,7 +87,7 @@
         * Groovy introduces 'traits', which are akin to interfaces in Java
             * Similarly to interfaces, traits allow for an approximation to multiple inheritance
             * Like interfaces in Java 8, they can contain non-abstract methods
-            * Unlike interfaces, Groovy traits can also be stateful and have their own fields; but do not have constructors
+            * Unlike interfaces, Groovy traits can also be stateful and have their own fields; but they also do not have constructors
         * Example: [`FixturesTrait.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/FixturesTrait.groovy)
             * To make use of the fixture logic, we use the `implements` keyword in the desired specification and simply invoke the members (fields + methods) that we need 
     * Using Delegation:
