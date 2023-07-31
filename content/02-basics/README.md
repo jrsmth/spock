@@ -37,6 +37,8 @@
             * By default, Groovy methods are `public`
             * The `def` keyword is the idiomatic way to define feature methods
                 * Note: we could use `void` instead of `def`, as our feature methods do not return anything and `def` implies that they could
+* Fixture methods:
+    * Otherwise known as 'Helper' methods; these are methods that are responsible for the set-up and clean-up of the test environment 
 * Blocks:
     * Feature methods can be divivded into blocked, where special semantics are applied, depending on the label used
     * We can add comments to blocks:

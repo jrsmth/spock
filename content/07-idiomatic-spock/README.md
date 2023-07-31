@@ -84,4 +84,43 @@
                 postMessageBy(store, user)
             ``` 
     * Using Groovy Traits:
+        * Groovy introduces 'traits', which are akin to interfaces in Java
+            * Similarly to interfaces, traits allow for an approximation to multiple inheritance
+            * Like interfaces in Java 8, they can contain non-abstract methods
+            * Unlike interfaces, Groovy traits can also be stateful and have their own fields; but do not have constructors
+        * Example: [`FixturesTrait.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/FixturesTrait.groovy)
+            * To make use of the fixture logic, we use the `implements` keyword in the desired specification and simply invoke the members (fields + methods) that we need 
     * Using Delegation:
+        * We can also create fixtures methods in a 'delagate' class, that is created as a property of the specification class and annotated with `@Delegate`
+            * Here, delegation is a way to import instance methods of an object in much the same way that `import static` imports static methods
+                * Groovy's `@Delegate` annotation intercepts any unknown method calls and redirects them to the delegate object
+            * Note:
+                * Multiple delegates can be used in one specification and should conflicts arise, the first declared delegate is given precedence
+                * The Geb test framework uses `@Delegate` to provide specifications with convienient access to `Page` and `Browser` objects
+        * Example:
+            ```groovy
+                class SomeSpec extends Specification {
+
+                    @Delegate FixturesDelagate fixtures
+
+                    def setup() {
+                        fixtures = new FixturesDelegate(messageStore, userStore, followingStore, user)
+                    }
+
+                    ...
+                }
+
+                @TupleConstructor // This is a Groovy annotation that performs a similar role to Lombok's @AllArgsConstructor
+                class FixturesDelegate {
+                    final MessageStore messageStore
+                    final UserStore userStore
+                    final FollowingStore followingStore
+                    final User user
+
+                    void postMessageBy(User poster) {
+                        messageStore.insert(poster, 'aaaa', Instant.now())
+                    }
+
+                    ...
+                }
+            ```
