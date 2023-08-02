@@ -1,5 +1,6 @@
-package com.jrsmiffy.spock.squawker
+package com.jrsmiffy.spock.squawker.fixtures
 
+import com.jrsmiffy.spock.squawker.User
 import com.jrsmiffy.spock.squawker.jdbi.MessageStore
 
 import java.time.Instant

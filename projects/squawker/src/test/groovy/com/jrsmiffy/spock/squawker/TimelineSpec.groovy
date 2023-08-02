@@ -1,9 +1,11 @@
 package com.jrsmiffy.spock.squawker
 
-import spock.lang.Ignore
+import com.jrsmiffy.spock.squawker.fixtures.FixturesDelegate
+import com.jrsmiffy.spock.squawker.jdbi.FollowingStore
+import com.jrsmiffy.spock.squawker.jdbi.MessageStore
+import com.jrsmiffy.spock.squawker.jdbi.UserStore
 import spock.lang.Specification
 import spock.lang.Subject
-import spock.lang.Unroll
 
 import java.time.Clock
 import java.time.Instant
@@ -13,6 +15,13 @@ import java.time.temporal.ChronoUnit
 import static java.time.Instant.now
 
 class TimelineSpec extends Specification {
+
+    @Delegate
+    FixturesDelegate fixtures
+    def userStore = new UserStore()
+    def messageStore = new MessageStore()
+    def followingStore = new FollowingStore()
+    // Note :: this^ for demo-purposes and is not the ideal way of using a @Delegate
 
     @Subject user = new User('khan')
     // Note: @Subject is a visual-aid which denotes the field that represents our unit-under-test
@@ -30,6 +39,14 @@ class TimelineSpec extends Specification {
         postMessage(followedUser, now.minus(3, ChronoUnit.MINUTES), '@scotty I need warp speed in three minutes or we\'re all dead!')
         postMessage(otherUser, now.minus(2, ChronoUnit.MINUTES), '@bones I\'m sorry, Doctor, I have no time to explain this logically.')
         postMessage(user, now.minus(1, ChronoUnit.MINUTES), 'It is very cold in space!')
+
+        fixtures = new FixturesDelegate(
+                messageStore,
+                userStore,
+                followingStore,
+                user
+        )
+
     }
 
     def 'a user\'s timeline contains posts from themselves and followed users'() {
@@ -60,6 +77,24 @@ class TimelineSpec extends Specification {
 
         then:
         thrown(UnsupportedOperationException)
+    }
+
+    def "when new messages are posted they appear in the timeline"() {
+        given:
+        def followedUser = followNewUser("kirk")
+
+        and:
+        postMessageBy(followedUser)
+
+        when:
+        postMessageBy(followedUser)
+
+        then:
+        timeline.size() == old(timeline.size()) // + 1
+        // Note :: example use of `old()` to compare before and after values
+
+        and:
+        timeline.first().postedAt > old(timeline.first().postedAt)
     }
 
     /*

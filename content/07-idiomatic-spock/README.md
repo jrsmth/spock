@@ -87,7 +87,7 @@
                 * Similarly to interfaces, traits allow for an approximation to multiple inheritance
                 * Like interfaces in Java 8, they can contain non-abstract methods
                 * Unlike interfaces, Groovy traits can be stateful and have their own fields; but they too do not have constructors
-            * Example: [`FixturesTrait.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/FixturesTrait.groovy)
+            * Example: [`FixturesTrait.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/fixtures/FixturesTrait.groovy)
                 * To make use of the fixture logic, we use the `implements` keyword in the desired specification and simply invoke the members (fields + methods) that we need 
         * Using Delegation:
             * We can also create fixtures methods in a 'delegate' class, that is created as a property of the specification class and annotated with `@Delegate`
@@ -131,5 +131,14 @@
     * In a similar vein to the assertions point above, we are able to declare mock interactions in helper methods
     * Example: [`PersistentUserSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/jdbi/PersistentUserSpec.groovy)
 
-### Comparing "Before" & "After" Values
-* use of old()...
+### Comparing "Before" & "After" Values with `old()`
+* The `old()` method can be used to compare a value from before and after a test was ran
+    * Useful for avoiding extra noise in our feature method
+* `old()` is applied in a `then:` block and takes a single expression parameter, returning the value that the expression had before the preceding `when:` block executed
+* How does `old()` work?
+    * Compared with standard Java, the behaviour of `old()` is rather odd - at compile-time, Spock replaces the method with a variable assigned earlier in the method to hold the 'before' value
+* Example: [`TimelineSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/TimelineSpec.groovy)
+
+<br>
+
+## The Grammar of Blocks
