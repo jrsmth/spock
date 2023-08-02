@@ -25,7 +25,7 @@ class FixturesDelegate {
     final User user
 
     void postMessageBy(User poster) {
-        messageStore.insert(poster, "aaaa", Instant.now())
+        messageStore.insert(poster, 'aaaa', Instant.now())
     }
 
     void postMessageBy(String posterName) {
@@ -40,7 +40,7 @@ class FixturesDelegate {
 
     void followExistingUser(String username) {
         def userToFollow = userStore.find(username)
-        if (!userToFollow) throw new IllegalStateException("No such user $username")
+        if (!userToFollow) throw new IllegalStateException('No such user $username')
         followingStore.follow(user, userToFollow)
     }
 

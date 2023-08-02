@@ -21,7 +21,7 @@ class TimelineSpec extends Specification {
     def userStore = new UserStore()
     def messageStore = new MessageStore()
     def followingStore = new FollowingStore()
-    // Note :: this^ for demo-purposes and is not the ideal way of using a @Delegate
+    // Note :: this^ is for demo-purposes and is not the ideal way of using a @Delegate
 
     @Subject user = new User('khan')
     // Note: @Subject is a visual-aid which denotes the field that represents our unit-under-test
@@ -79,9 +79,9 @@ class TimelineSpec extends Specification {
         thrown(UnsupportedOperationException)
     }
 
-    def "when new messages are posted they appear in the timeline"() {
+    def 'when new messages are posted they appear in the timeline'() {
         given:
-        def followedUser = followNewUser("kirk")
+        def followedUser = followNewUser('kirk')
 
         and:
         postMessageBy(followedUser)
