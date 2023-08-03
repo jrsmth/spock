@@ -1,4 +1,5 @@
-# Questions to consider when writting a feature method
+# Feature Method Checklist
+*Questions to consider when writing a feature method* <br>
 *!n Progress*
 
 <br>
