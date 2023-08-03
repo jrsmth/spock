@@ -28,3 +28,4 @@
 * Spock Up & Running (Rob Fletcher 2017):
     * [Book](https://www.oreilly.com/library/view/spock-up-and/9781491923283/)
     * [Repo](https://github.com/robfletcher/spock-up-and-running)
+    * [Questions to consider when writing a feature method](/content/misc/feature-method-checklist.md)

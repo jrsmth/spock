@@ -142,3 +142,44 @@
 <br>
 
 ## The Grammar of Blocks
+* With Spock being an 'expressive' test framework, we should endeavour to use good 'grammar' in our specifications
+
+### Separate test logic and data with `where:`
+* `where:` blocks, by their very nature, split our test steps from the data used to exercise the behaviour
+* Feature methods with `where:` blocks have test bodies that read as a general test-case and an appended `where:` section that gathers the individual test-cases in one place
+    * As a result, the test body has less noise and is easier to read
+* When a single parameter is used in a `where:` block, simple `=` assignments can be made; rather than the use of a data table or `<<`
+* To maximise expressiveness, always consider the use of `where:` blocks to enhance readability:
+    * However, don't be dogmatic in their application - I would argue that Mr Fletcher's example in this section could be served just as well with a traditional `given:` block
+    * Example:
+        ```groovy
+            def 'a user\'s posts are listed most recent first'() {
+                // Mr Smith (option A)
+                given:
+                def messages = ['It\'s life, Jim', 'but not as we know it']
+
+                when:
+                messages.each {
+                    user.post(it, now())
+                }
+
+                then:
+                user.posts().text == messages.reverse()
+
+                // Mr Fletcher (option B)
+                where:
+                messages = ['It\'s life, Jim', 'but not as we know it']
+            }
+        ```
+
+### `when: then:` vs `given: expect:`
+* Few Reminders:
+    * Spock has two blocks that can contain implicit assertions (`then:` & `expect:`)
+    * Explicit assertions can be made with the `assert` keyword but we lose some readability in the test report
+    * `expect:` can be used towards the start of our feature method, in order to verify the preconditions of our test (where appropriate)
+* `then:`
+    * ...
+* `expect:`
+    * ...
+* Summary:
+    * ...
