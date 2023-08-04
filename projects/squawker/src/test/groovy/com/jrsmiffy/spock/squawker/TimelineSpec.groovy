@@ -97,6 +97,45 @@ class TimelineSpec extends Specification {
         timeline.first().postedAt > old(timeline.first().postedAt)
     }
 
+    def 'a user who does not follow anyone sees only their own messages'() {
+        given:
+        def user = newUser(username)
+        3.times { postMessageBy(user) }
+
+        and: // Note :: use of `and:` in the set-up to separate preconditions
+        def other = newUser(otherUsername)
+        3.times { postMessageBy(other) }
+
+        expect:
+        user.timeline().postedBy.every {
+            it == user
+        }
+
+        where:
+        username = 'spock'
+        otherUsername = 'kirk'
+    }
+
+    def 'a user cannot follow someone they already follow'() {
+        given:
+        def user = userStore.insert(username)
+        def other = userStore.insert(otherUsername)
+
+        and: // Note :: use of `and:` in the set-up to separate preconditions
+        followingStore.follow(user, other)
+
+        when:
+        followingStore.follow(user, other)
+
+        then:
+//        thrown UnableToExecuteStatementException
+        noExceptionThrown()
+
+        where:
+        username = 'spock'
+        otherUsername = 'kirk'
+    }
+
     /*
     @Unroll('a message posted by #postedBy #behavior in #whose timeline')
     def 'a user only sees messages from users they follow in their timeline'() {

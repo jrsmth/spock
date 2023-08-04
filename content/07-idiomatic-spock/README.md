@@ -178,8 +178,23 @@
     * Explicit assertions can be made with the `assert` keyword but we lose some readability in the test report
     * `expect:` can be used towards the start of our feature method, in order to verify the preconditions of our test (where appropriate)
 * `then:`
-    * ...
+    * The word 'then' naturally follows some kind of action:
+        * e.g. "*when* a user posts a message, *then* it appears at the top of their timeline"
 * `expect:`
-    * ...
+    * The word 'expect' naturally fits before some kind of precondition:
+        * e.g. "*given* a user is not following anyone, *expect* that their timeline contains only their own messages"
 * Summary:
-    * ...
+    * Choosing the best semantic block is a linguistic dark-art
+    * Common patterns see `when:` matched up with `then:`, and `given:` matched up with `expect:`
+    * When deciding which combination to use, go with which ever is most logical from a grammatical perspective
+
+### Separating Preconditions
+* Separating different preconditions:
+    * Just like when separating assertions in a `then:`/`expect:` block, we can use the `and:` block to separate preconditions in a `given:`/`setup:` block
+    * Example: [`TimelineSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/TimelineSpec.groovy)
+* Separating preconditions from actions:
+    * Lumping together preconditions and the action being tested in the same `where:` block, is fairly common anti-pattern
+        * This makes discerning the exact behaviour under test more difficult
+    * Instead, we should make efforts to keep the `where:` block as concise as possible
+        * As a GRoT, declare variables in the `given:`/`setup:` step (or by extension, `where:`)
+    * Example: [`TimelineSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/TimelineSpec.groovy)
