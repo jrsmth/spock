@@ -198,3 +198,7 @@
     * Instead, we should make efforts to keep the `where:` block as concise as possible
         * As a GRoT, declare variables in the `given:`/`setup:` step (or by extension, `where:`)
     * Example: [`TimelineSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/TimelineSpec.groovy)
+
+<br>
+
+## ...
