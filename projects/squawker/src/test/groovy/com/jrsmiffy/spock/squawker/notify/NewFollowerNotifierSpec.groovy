@@ -21,7 +21,7 @@ class NewFollowerNotifierSpec extends Specification {
         when:
         notifier.onNewFollower(event)
 
-        then: // Note :: example use of parameter (argument) capture
+        then: // Note :: example use of parameter/argument capture
         1 * emailSender.send(user1, _) >> {
             message = it[1]
         }
