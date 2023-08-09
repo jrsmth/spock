@@ -207,10 +207,11 @@
 <br>
 
 ## Method Argument Capture with Mocks
-* Using a combination of Spock mocks and Groovy closures, we can capture argument which are supplied to mocked methods:
+* Using a combination of Spock mocks and Groovy closures, we can capture arguments which are supplied to mocked methods:
     * This is useful when we want to make specific assertions about which values are passed to a mock
 * The closure has an implicit `it` parameter which is an array of all the arguments passed to that method:
     * Hence, if we wanted to access the second argument of a mocked method, we would access `it[1]`
+* General example:
     ```groovy
         // General example
         def arg
@@ -222,8 +223,8 @@
 
         arg.doSomething()
     ```
-* Example: [NewFollowerNotifierSpec](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/notify/NewFollowerNotifierSpec.groovy)
-* Note: I believe 'argument' capture is the same thing as 'parameter' capture; the former ('argument') is probably more appriopriate as we are capturing the value passed to the method on invocation
+* Squawker example: [NewFollowerNotifierSpec](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/notify/NewFollowerNotifierSpec.groovy)
+* Note: I believe 'argument' capture is the same thing as 'parameter' capture; the former ('argument') is probably more appriopriate as we are capturing the values passed to the method on invocation
 
 <br>
 
