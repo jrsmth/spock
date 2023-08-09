@@ -15,7 +15,7 @@
 * General Good Practise:
     * A quip from Uncle Bob about comments:
         * `"The proper use of comments is to compensate for our failure to express ourselves in code"`
-            1. Code should read like written prose (explanatory)
+            1. Code should read like well-written prose (explanatory)
             2. Comments should only be used when absolutely necessary (i.e. the code cannot be written any more clearly)
 
 <br>
@@ -228,4 +228,4 @@
 <br>
 
 ## @Stepwise Specifications
-* 
+* ...
