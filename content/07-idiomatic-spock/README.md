@@ -12,6 +12,11 @@
         * What this quip really means:
             * 'Never trust a test where you don't understand exactly what is tested'
                 * A good way to tell is to purposefully try to make the test fail and verify your understanding
+* General Good Practise:
+    * A quip from Uncle Bob about comments:
+        * `"The proper use of comments is to compensate for our failure to express ourselves in code"`
+            1. Code should read like written prose (explanatory)
+            2. Comments should only be used when absolutely necessary (i.e. the code cannot be written any more clearly)
 
 <br>
 
@@ -201,4 +206,26 @@
 
 <br>
 
-## ...
+## Method Parameter Capture with Mocks
+* Using a combination of Spock mocks and Groovy closures, we can capture parameters which are supplied to mocked methods:
+    * This is useful when we want to make specific assertions about which values are passed to a mock
+* The closure has an implicit `it` parameter which is an array of all the parameters passed to that method:
+    * Hence, if we wanted to access the second parameters of a mocked method, we would access `it[1]`
+    ```groovy
+        // General example
+        def param
+
+        then:
+        n * mockedObj.method(*_) >> {
+            param = it[0] // 0 for first parameter, etc
+        }
+
+        param.doSomething()
+    ```
+* Example: [NewFollowerNotifierSpec](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/notify/NewFollowerNotifierSpec.groovy)
+* Note: I believe 'argument' capture is the same thing as 'parameter' capture; the former ('argument') is probably more appriopriate as we are capturing the value passed to the method on invocation
+
+<br>
+
+## @Stepwise Specifications
+* 
