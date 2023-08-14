@@ -236,7 +236,7 @@
 * Annotating our class with `@Stepwise` ensures that each feature method is run in source order:
     * Should a feature method fail, the subsequent tests are skipped; on the assumption that their preconditions are invalid (i.e the test that just failed)
 * Candidates for use:
-    1. Slow-running, browser-based tests; particularly if the user needs to go through a long process to get the point where the bheaviour can be tested
+    1. Slow-running, browser-based tests; particularly if the user needs to go through a long process to get the point where the behaviour can be tested
     2. Step-by-step processes, where each step is naturally interdependent, but the process is too complex to fit into a single feature method
 * Reminder:
     * `setup()` and `cleanup()` fixtures will still run before and after each feature method; therefore, watch out for destructive side effects
