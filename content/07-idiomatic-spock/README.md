@@ -230,8 +230,8 @@
 
 ## @Stepwise Specifications
 * Specifications should be comprised of isolated feature methods that do not affect one another when executed
-    * Test leakage is undesirable - that is, when a feature method causes changes to the test environment that affects the execution of other tests
-    * However, in very rare ocassions it is actually desirable to create a specification whose feature methods are dependent on one another
+    * Test leakage is generally undesirable - that is, when a feature method causes changes to the test environment that affects the execution of other tests
+    * However, in very rare ocassions it is prudent to create specs whose feature methods are dependent on one another:
         * In doing so, they need to run in a particular order with a maintained shared state
 * Annotating our class with `@Stepwise` ensures that each feature method is run in source order:
     * Should a feature method fail, the subsequent tests are skipped; on the assumption that their preconditions are invalid (i.e the test that just failed)
