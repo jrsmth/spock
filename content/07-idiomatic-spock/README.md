@@ -229,4 +229,26 @@
 <br>
 
 ## @Stepwise Specifications
-* ...
+* Specifications should be comprised of isolated feature methods that do not affect one another when executed
+    * Test leakage is undesirable - that is, when a feature method causes changes to the test environment that affects the execution of other tests
+    * However, in very rare ocassions it is actually desirable to create a specification whose feature methods are dependent on one another
+        * In doing so, they need to run in a particular order with a maintained shared state
+* Annotating our class with `@Stepwise` ensures that each feature method is run in source order:
+    * Should a feature method fail, the subsequent tests are skipped; on the assumption that their preconditions are invalid (i.e the test that just failed)
+* Candidates for use:
+    1. Slow-running, browser-based tests; particularly if the user needs to go through a long process to get the point where the bheaviour can be tested
+    2. Step-by-step processes, where each step is naturally interdependent, but the process is too complex to fit into a single feature method
+* Reminder:
+    * `setup()` and `cleanup()` fixtures will still run before and after each feature method; therefore, watch out for destructive side effects
+* Disadvantages:
+    * Deciding to use `@Stepwise` is a comprimise:
+        * We lose the benefits of independent feature methods; i.e coupled tests are harder to understand, debug and maintain over time
+            * As a result, only use `@Stepwise` where absolutely necessary
+
+<br>
+
+## Conditional Specifications
+* `@Ignore`:
+    * As with JUnit's `@Disabled`/`@Ignore`, Spock offers an `@Ignore` annotation that can be applied at the class- or method-level to skip the execution of tests
+* Similar annotations for skipping tests:
+    * `@IgnoreRest`:
