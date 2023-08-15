@@ -252,3 +252,23 @@
     * As with JUnit's `@Disabled`/`@Ignore`, Spock offers an `@Ignore` annotation that can be applied at the class- or method-level to skip the execution of tests
 * Similar annotations for skipping tests:
     * `@IgnoreRest`:
+        * Allows you to run a particular method (i.e. the one you have annotated) and skip the remainder of tests in that specification
+    * `@PendingFeature`:
+        * A variant of `@Ignore`, that will run the test but will report an error if it passes
+            * They are expected to fail on the assumption that the functionality is still under-development and so the test must be invalid
+    * `@IgnoreIf`:
+        * Evaluates a condition; skipping the test execution if the condition evaluates true
+        * Example: [`ConditionalSpec.groovy](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/conditional/ConditionalSpec.groovy)
+            ```groovy
+                @IgnoreIf({
+                    env.SKIP_INTEGRATION_TESTS == "yes"
+                })
+            ```
+    * `@Requires`:
+        * Evaluates a condition; the opposite of `@IgnoreIf`, only running the method or specification if the condition evaluates true
+        * Example: [`ConditionalSpec.groovy](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/conditional/ConditionalSpec.groovy)
+            ```groovy
+                @Requires({
+                    available('http://spockframework.org/')
+                })
+            ```
