@@ -258,7 +258,7 @@
             * They are expected to fail on the assumption that the functionality is still under-development and so the test must be invalid
     * `@IgnoreIf`:
         * Evaluates a condition; skipping the test execution if the condition evaluates true
-        * Example: [`ConditionalSpec.groovy](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/conditional/ConditionalSpec.groovy)
+        * Example: [`ConditionalSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/conditional/ConditionalSpec.groovy)
             ```groovy
                 @IgnoreIf({
                     env.SKIP_INTEGRATION_TESTS == "yes"
@@ -266,7 +266,7 @@
             ```
     * `@Requires`:
         * Evaluates a condition; the opposite of `@IgnoreIf`, only running the method or specification if the condition evaluates true
-        * Example: [`ConditionalSpec.groovy](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/conditional/ConditionalSpec.groovy)
+        * Example: [`ConditionalSpec.groovy`](../../projects/squawker/src/test/groovy/com/jrsmiffy/spock/squawker/conditional/ConditionalSpec.groovy)
             ```groovy
                 @Requires({
                     available('http://spockframework.org/')
