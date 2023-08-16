@@ -272,3 +272,43 @@
                     available('http://spockframework.org/')
                 })
             ```
+
+<br>
+
+## Automatically Cleaning-up Resources
+* `@AutoCleanup` is an annotation that, when applied to a field, will implicitly call the 'close' method on said resource once the test has finished
+* Example:
+    ```groovy
+        // Without @AutoCleanup
+        Handle handle
+
+        def cleanup() {
+            handle.execute("drop table user if exists")
+            handle.execute("drop table message if exists")
+            handle.execute("drop table following if exists")
+            handle.close()
+        }
+
+        // With @AutoCleanup
+        @AutoCleanup 
+        Handle handle
+
+        def cleanup() {
+            handle.execute("drop table user if exists")
+            handle.execute("drop table message if exists")
+            handle.execute("drop table following if exists")
+            // no explicit .close() required
+        }
+    ```
+
+<br>
+
+## Documenting Specifications
+* Annotations for more expressive specifications:
+    * `@Issue`:
+        * Allows you to link to a specific ticket in your issue tracker
+            * Most likely used when tests are written in response to a bug report
+    * `@Subject`:
+        * Decorates the component/subject/unit-under-test
+    * `@Title`:
+        * 
