@@ -16,6 +16,7 @@
 * [Interaction Testing](./content/05-interaction-testing)
 * [Parameterised Specifications](./content/06-parameterised-specs)
 * [Idiomatic Spock](./content/07-idiomatic-spock)
+* [Advanced `where:` Blocks](./content/08-advanced-where)
 
 <br>
 
@@ -29,4 +30,4 @@
     * [Book](https://www.oreilly.com/library/view/spock-up-and/9781491923283/)
     * [Repo](https://github.com/robfletcher/spock-up-and-running)
 * [Feature Method Checklist](/content/misc/feature-method-checklist.md)
-* [In-the-Wild Examples](/content/misc/wild-examples)
+* [In-The-Wild Examples](/content/misc/wild-examples)
