@@ -1,5 +1,5 @@
 # In-The-Wild Examples
-*A collection of some of my favourite tests*
+*A collection of my favourite tests*
 
 <br>
 
