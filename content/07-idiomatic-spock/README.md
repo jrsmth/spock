@@ -311,4 +311,10 @@
     * `@Subject`:
         * Decorates the component/subject/unit-under-test
     * `@Title`:
-        * 
+        * Allows you to apply a natural language name at the class-level:
+            * i.e. like with feature methods, you can give Specifications more expressive titles
+    * `@Narrative`:
+        * Allows you to apply a long-form description to a Specification
+* Spock Reports Extension:
+    * The annotations mentioned above are retained in the byte code and hence can be used by reporting tools to create good documentation
+    * Good place to start: https://github.com/renatoathaydes/spock-reports
