@@ -4,6 +4,5 @@
 
 <br>
 
-## Example 1
-* [`title.groovy`](./title.groovy):
-    * What is showcases...
+## 1: [`title.groovy`](./title.groovy)
+* What is showcases...
