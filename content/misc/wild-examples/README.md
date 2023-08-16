@@ -1,13 +1,13 @@
-# In-The-Wild Examples
+# In-the-Wild Examples
 *A collection of tests from real-world projects*
 <!-- sensitive information to be redacted -->
 
 <br>
 
 ### [`title.groovy`](./title.groovy)
-* What is showcases...
+* What it showcases...
 
 <br>
 
 ### [`title.groovy`](./title.groovy)
-* What is showcases...
+* What it showcases...
