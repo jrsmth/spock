@@ -13,3 +13,12 @@
 <br>
 
 ## Blocking Constructs
+* Blocking Constructs are used to capture values generated from asynchronous processes
+* `BlockingVariable` & `BlockingVariables`:
+    * `spock.util.concurrent.BlockingVariable`:
+        * Captures a single value
+        * Has `get()` and `set()` methods, where the `get()` operation blocks the test until `set()` is called from the concurrent thread
+    * `spock.util.concurrent.BlockingVariables`:
+        * Captures multiple values
+        * Provides a map who `get()` operation blocks until `set()` is called for that individual key
+            * `BlockingVariables` awaits for each key independently
