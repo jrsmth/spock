@@ -30,9 +30,9 @@
     * A non-blocking method is one that does not make the caller wait for the result, which might take some time to generate
     * Non-blocking methods that generate a result will typically return a `Future` or accept a callback parameter
 * Examples:
-    * Naive Implementation: https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec.groovy)
-    * Using `BlockingVariable`: https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec2.groovy
-    * Using `BlockingVariable` with Closure: https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec3.groovy
+    * [Naive Implementation](https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec.groovy)
+    * [Using `BlockingVariable`](https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec2.groovy)
+    * [Using `BlockingVariable` with Closure](https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec3.groovy)
 
 <br>
 
@@ -43,5 +43,5 @@
         * `within(double, Clousre)`
         * `eventually(Closure)`
 * Examples:
-    * `PollingConditions`: https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec6.groovy
-    * `PollingConditions` with Delegate: https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec7.groovy
+    * [`PollingConditions`](https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec6.groovy)
+    * [`PollingConditions` with Delegate](https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-async/src/test/groovy/squawker/jdbi/async/AsyncMessageStoreSpec7.groovy)
