@@ -18,6 +18,7 @@
 * [Idiomatic Spock](./content/07-idiomatic-spock)
 * [Advanced `where:` Blocks](./content/08-advanced-where)
 * [Asynchronous Testing](./content/09-async-testing)
+* [Extending Spock](./content/10-extending-spock)
 
 <br>
 
