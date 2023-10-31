@@ -3,7 +3,7 @@
 <br>
 
 ## Overview
-* TDD should be your default standard for developing functionality
+* TDD should be your default standard
 * Some ideas around the nature of TDD:
     * https://github.com/jrsmth/op-caerus/blob/main/tintk/tdd.md
 * Good example exercise:
