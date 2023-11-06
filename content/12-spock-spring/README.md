@@ -9,7 +9,7 @@
         * Integration Tests (IT)
         * End-to-end Tests (E2E)
     * These can be represented as a pyramid, where the width of the level denotes the relative amount of tests
-        * In other words, we should have many more unit tests than integration tests (IT's); and many more IT's than E2E test
+        * In other words, we should have many more unit tests than integration tests (IT's); and many more IT's than E2E tests
 
         <br>
 
@@ -26,7 +26,7 @@
                 * Here, the class is tested as a closed chain
         * Integration Tests:
             * Where we test the interactions between units of our application
-            * This is typically at the microservice-level; we test each exposed endpoint that is exposed by the service
+            * This is typically at the microservice-level; we test each endpoint that is exposed by the service
                 * Here, the microservice is tested as a closed chain
         * End-to-end Tests:
             * Where we test the end-user functionality of our application
@@ -35,7 +35,7 @@
 * Container Testing:
     * This is a branch of integration testing that focuses purely on exercising the interactions a service (e.g a single Java application) has with the underlying container or framework on which it runs
     * This is to ensure that framework features have been properly understood and configured appropriately
-    * Mr Fletcher gives the example of using the `@Transactional` feature with the Spring (as the underlying framework)
+    * Mr Fletcher gives the example of using the `@Transactional` feature with Spring as the underlying framework
         * `@SpringBootTest` is used to start the Spring Container and initialise the application context
 * Should you split IT and unit tests into separate suites?
     * Some schools of thought call for this on the grounds that integration tests can be many times slower to run that unit tests
