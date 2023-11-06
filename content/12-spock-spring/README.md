@@ -5,9 +5,9 @@
 ## Overview
 * Testing Pyramid:
     * There exists three levels of automated testing for our applications:
-        * Unit:
-        * Integration (IT)
-        * End-to-end (E2E)
+        * Unit Tests
+        * Integration Tests (IT)
+        * End-to-end Tests (E2E)
     * These can be represented as a pyramid, where the width of the level denotes the relative amount of tests
         * In other words, we should have many more unit tests than integration tests (IT's); and many more IT's than E2E test
 
