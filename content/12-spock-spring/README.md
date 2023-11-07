@@ -45,4 +45,21 @@
 <br>
 
 ## Testing Annotation-Driven Transactions
+* Transactions 101:
+    * Datebase transactions are groups of operations that are executed as a single atomic unit; any changes will be rolled back in the event that one of operations fails
+        * This is so that none of the operations take affect unless the whole process succeeds - protecting the validity of the database
+    * `@Transactional`:
+        * When applied to a Spring-managed Bean, this annotation wraps invocations of a method call in a proxy that begins the transaction when the method is called and commits it upon successful execution.
+            * If an exception is thrown during execution, the transaction is automatically rolled back
+        * This is an example of AOP (Aspect-Oriented Programming), a paradigm providing cross-cutting behaviours driven by the presence of annotations
+* How to test a transaction rollback:
+    * Example: [`MessageServiceTransactionSpec.groovy`](https://github.com/robfletcher/spock-up-and-running/blob/master/code/squawker-spring-integration/src/test/groovy/squawker/mentions/tx/transactional/MessageServiceTransactionSpec.groovy)
 
+<br>
+
+## Application Context
+* As mentioned above, `@SpringBootTest` will start up the application context; significantly increasing the resources it takes to run the test
+    * `@DataJpaTest` performs a similar role but only stands up parts of the application related to persistence
+* Spock offers us `@DirtiesContext`, which can be applied to a specification or feature method to reinitialise the application context after execution:
+    * Note, this annotation will affect performance so is to be used to solve the problem of test leaks
+        * Remember, Software Engineering is about trade-offs
