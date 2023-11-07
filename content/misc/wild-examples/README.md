@@ -4,8 +4,8 @@
 
 <br>
 
-### [`title.groovy`](./title.groovy)
-* What it showcases...
+### [`WebSocketSpec.groovy`](./WebSocketSpec.groovy)
+* Integration Test, Spring WebSocket
 
 <br>
 
