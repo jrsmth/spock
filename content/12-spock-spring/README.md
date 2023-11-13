@@ -63,3 +63,7 @@
 * Spock offers us `@DirtiesContext`, which can be applied to a specification or feature method to reinitialise the application context after execution:
     * Note, this annotation will affect performance so is to be used to solve the problem of test leaks
         * Remember, Software Engineering is about trade-offs
+* Spring Application Events:
+    * Spring has an event mechanism, which is available through the application context
+    * Components can autowire the `ApplicationEventPublisher` and use the `publishEvent()` method to publish events
+        * Similarly, `ApplicationListener` can be used to listen for such events
