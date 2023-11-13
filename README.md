@@ -21,6 +21,7 @@
 * [Extending Spock](./content/10-extending-spock)
 * [Test Driven Development](./content/11-tdd)
 * [Spock & Spring](./content/12-spock-spring)
+* [Testing Rest APIs](./content/13-rest-apis)
 
 <br>
 
