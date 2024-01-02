@@ -2,7 +2,7 @@
 
 <br>
 
-## Overview
+## Overview
 * A reminder on the nature of web pages:
     * Traditional approach:
         * Using multiple static webpages (ex. using Thymeleaf, Flask)
