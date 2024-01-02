@@ -22,6 +22,9 @@
 * [Test Driven Development](./content/11-tdd)
 * [Spock & Spring](./content/12-spock-spring)
 * [Testing Rest APIs](./content/13-rest-apis)
+* [End-to-End Web Testing](./content/14-e2e-web-testing)
+* [Groovy Primer](./content/17-groovy-primer)
+<!-- Note :: Sections 15 (JavaScript Testing) and 16 (Testing RxJava Apps) were omitted for relevance -->
 
 <br>
 
