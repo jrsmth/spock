@@ -25,4 +25,51 @@
 * Exceptions:
     * Groovy doesn't have checked exceptions (i.e those that must be handled or declared)
 * Implicit Return:
-    * 
+    * Unless defined as `void`, Groovy methods return the value of the last statement
+    * Therefore the `return` keyword is unrequired but can enhance readability
+* Default Parameters:
+    * Groovy methods can define default values for their parameters:
+        * The only restriction is that non-default parameters must come before default ones
+* Method Dispatch:
+    * Java dispatches calls with compile-time type information, whereas Groovy does so with runtime type information
+
+<br>
+
+## Valid Java Code That Is Not Valid Groovy Code
+* Array Initialisation:
+    * Array literals are not valid in Groovy:
+        ```java
+            // Java
+            int[] array1 = {1, 2, 3};
+            int[] array2 = new int[] {1, 2, 3};
+        ```
+    * Instead of array literals, Groovy allows us list literals that can be converted into arrays:
+        ```groovy
+            int[] array = [1, 2, 3] as int[]
+        ```
+    * This also affects annotation parameters which are written with `[]` rather than `{}`, as with Java
+* Multiple `for` Loop Variables:
+    * The following is invalid Groovy code:
+        ```java
+            for (int i = 0, j = 0; i < 5; i++, j++) {}
+        ```
+* The do... While Loop:
+    * The following is not supported in Groovy:
+        ```java
+            do {
+                doSomething();
+            } while (somethingNeedsDoing);
+        ```
+* Try With Resources:
+    * Introduced in Java 7, not available in Groovy; use `.withCloseable()` instead
+* Lambdas:
+    * Introduced in Java 8, not available in Groovy; use Groovy closure instead
+* Method References:
+    * Introduced in Java 8, not available in Groovy; instead of `::`, Groovy uses `.&`
+
+<br>
+
+## Dynamic-Typed Variables
+* The `def` keyword can be used to define parameters, fields, variables and method return types that may be assigned a value of any type
+* The type can change of the fly, though this can make for hard to read code
+* Note: its idiomatic to use `def`, but static type information should be used when code would be easier to understand
