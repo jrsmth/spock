@@ -73,3 +73,46 @@
 * The `def` keyword can be used to define parameters, fields, variables and method return types that may be assigned a value of any type
 * The type can change of the fly, though this can make for hard to read code
 * Note: its idiomatic to use `def`, but static type information should be used when code would be easier to understand
+
+<br>
+
+## List & Map Literals
+* Groovy does not have array literals
+* It does have `List` and `Map` literals
+    * Which greatly improve on how Java lists and maps are created (see examples below)
+* Lists:
+    * Creating Lists:
+        ```Java
+            // Java
+            List<String> crew = new ArrayList();
+            crew.add("Kirk");
+            crew.add("Spock");
+            crew.add("Bones");
+
+            // or...
+            List<String> crew = List.of("Kirk", "Spock", "Bones");
+        ```
+        ```Groovy
+            // Groovy
+            def crew = ["Kirk", "Spock", "Bones"]
+        ```
+    * Lists can be indexed in Groovy via numeric indices in square bracket notation:
+        ```Groovy
+            assert crew[0] == "Kirk"
+            assert crew[0..1] == ["Kirk", "Spock"]
+            assert crew[1..-1] == ["Spock", "Bones"]
+        ```
+* Maps:
+    * Creating Maps:
+        ```Groovy
+            def crew = [captain: "Kirk", science: "Spock", medical: "Bones"]
+        ```
+        * Note, Groovy map literals create instances of `LinkedHashMap` and as a result, we can assume that element order is preserved
+    * Programmatically assigning keys:
+        * One can use brackets to assign variables or non-string literals as map keys
+        * Example:
+            ```groovy
+                def map = [(arr[0]): "Kirk"]
+            ```
+    * As with JavaScript, we can access and assign map values using either square braces or dot notation
+        * Example: `crew["medical"] or crew.medical`
