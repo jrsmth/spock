@@ -137,7 +137,7 @@
 
 <br>
 
-## Immutability
+## Immutability
 * `asImmutable()` can be called on a list or map declaration, making it immutable
 
 <br>
