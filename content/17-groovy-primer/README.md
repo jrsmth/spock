@@ -116,3 +116,60 @@
             ```
     * As with JavaScript, we can access and assign map values using either square braces or dot notation
         * Example: `crew["medical"] or crew.medical`
+* Ranges:
+    * Groovy supports an iterable called a Range
+        * Example:
+            ```groovy
+                def inc = 1..5 // inclusive
+                assert inc = [1, 2, 3, 4, 5]
+
+                def exc = 1..<5 // exclusive
+                assert ecx = [1, 2, 3, 4]
+            ```
+    * Ranges are frequently used for slicing up strings and lists:
+        * Example:
+            ```groovy
+                def name = "James T Kirk"
+                assert name[0..4] == "James"
+                assert name[0..<5] == "James"
+                assert name[8..-1] == "Kirk
+            ```
+
+<br>
+
+## Immutability
+* `asImmutable()` can be called on a list or map declaration, making it immutable
+
+<br>
+
+## Maps As Named Arguments
+* A Groovy class without an explicity constructor is given a default constructor that accepts a `Map<String, ?>`
+* It will assign object properties to values found in the map
+* Ex: `def person = new Person(firstName: "James", lastName: "Smith")`
+    * Note: Personally, this looks to be an '~exploded' map, where the surrounding braces are omitted
+
+<br>
+
+## Set & Array Literals
+* Groovy does not support set or array literals
+* Instead, one must convert a list to a set or an array using Groovy's safe cast
+* Example:
+    ```Groovy
+        def crewSet = ["Kirk", "Spock", "Bones"] as Set
+        assert crewSet instanceof HashSet
+
+        def crewArray = ["Kirk", "Spock", "Bones"] as String[]
+        assert crewArray instanceof String[]
+    ```
+
+<br>
+
+## Truthiness
+* Any value in Groovy can be coerced to a Boolean
+* Note: Groovy truthiness can be customised by implementing `asBoolean()`
+    * Although this is not recommended
+
+<br>
+
+## Properties
+* ...
