@@ -28,7 +28,7 @@
 
 <br>
 
-### [`BusinessLogicSpec.groovy`](./groovy/ArgumentCaptor.groovy)
+### [`BusinessLogicSpec.groovy`](./groovy/ArgumentCaptorSpec.groovy)
 * REGEX Testing
 * Argument Capture
 * JSON Slurper
